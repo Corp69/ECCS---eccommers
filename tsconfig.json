@@ -3,6 +3,21 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+
+    "paths": {
+      "@shared/*":[
+        "./src/app/shared/*"
+      ],
+      "@environments":[
+        "./src/environments/environment.ts"
+      ],
+      "@guard":[
+        "./src/app/auth/login/guards/auth.guard.ts"
+      ]
+    },
+
+
+
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
