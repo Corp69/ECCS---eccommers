@@ -27,12 +27,12 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'ecommerce/principal',
+    redirectTo: 'auth/login',
     pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: 'ecommerce/principal',
+    redirectTo: 'auth/login',
     pathMatch: 'full',
   },
 ];

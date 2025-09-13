@@ -1,19 +1,16 @@
-import { ApplicationConfig, importProvidersFrom, isDevMode, provideExperimentalZonelessChangeDetection, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideExperimentalZonelessChangeDetection, isDevMode, importProvidersFrom } from '@angular/core';
 import { provideRouter, withViewTransitions } from '@angular/router';
 
-import { routes } from './app.routes';
-import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import { provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import { routes } from './src/app/app.routes';
 
 export const appConfig: ApplicationConfig = {
-  //providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
-
   providers: [
     provideExperimentalZonelessChangeDetection(),
     //PWA 
@@ -29,14 +26,9 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(BrowserModule, BrowserAnimationsModule, ReactiveFormsModule),
     // cliente Http
     provideHttpClient(withFetch()),
-    provideClientHydration(),
+    provideClientHydration()
     //proveedor prime ng 
-    providePrimeNG({ theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } }}),
-    provideAnimationsAsync(),
-
+    // providePrimeNG({ theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } }
+  
   ],
-
-
-
-
 };
